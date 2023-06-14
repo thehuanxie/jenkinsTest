@@ -1,0 +1,9 @@
+/**
+ * 
+ */
+/**
+ * @author Administrateur
+ *
+ */
+module mavenTest {
+}
