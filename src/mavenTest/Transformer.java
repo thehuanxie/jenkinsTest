@@ -72,7 +72,7 @@ public class Transformer {
 			if (replacement != null) {
 				matcher.appendReplacement(buffer, replacement);
 			}else {
-				System.out.println("No this token");
+				System.err.println("No this token");
 			}
 		}
 		matcher.appendTail(buffer);

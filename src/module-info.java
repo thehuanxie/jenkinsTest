@@ -6,4 +6,5 @@
  *
  */
 module mavenTest {
+	requires java.logging;
 }
