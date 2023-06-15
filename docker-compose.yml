@@ -12,6 +12,8 @@ services:
             - /var/run/docker.sock:/var/run/docker.sock
             - /usr/bin/docker:/usr/bin/docker
             - /usr/bin/com.docker.cli:/usr/bin/com.docker.cli
+        networks:
+            - jenkins_network
     sonarqube:
         image: sonarqube:7.6-community
         volumes:
@@ -25,6 +27,8 @@ services:
             - sonar.jdbc.username=sonar
             - sonar.jdbc.password=sonar
             - sonar.jdbc.url=jdbc:postgresql://db:5432/sonar
+        networks:
+            - jenkins_network
     db:
         image: postgres
         environment:
@@ -33,6 +37,8 @@ services:
         volumes:
             - postgresql:/var/lib/postgresql
             - postgresql_data:/var/lib/postgresql/data
+        networks:
+            - jenkins_network
 volumes:
     jenkins:
     sonarqube_conf:
@@ -41,3 +47,7 @@ volumes:
     sonarqube_bundled-plugins:
     postgresql:
     postgresql_data:
+
+networks:
+    jenkins_network:
+        external: true
