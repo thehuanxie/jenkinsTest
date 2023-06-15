@@ -9,6 +9,45 @@
 	  <maven.compilier.source>17</maven.compilier.source>
   </properties>
   
+  <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-api -->
+  <dependencies>
+		<dependency>
+		    <groupId>org.slf4j</groupId>
+		    <artifactId>slf4j-api</artifactId>
+		    <version>2.0.7</version>
+		</dependency>
+	  <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-simple -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-simple</artifactId>
+	    <version>2.0.7</version>
+	    <scope>test</scope>
+	</dependency>
+
+	  <!-- https://mvnrepository.com/artifact/org.slf4j/slf4j-log4j12 -->
+	<dependency>
+	    <groupId>org.slf4j</groupId>
+	    <artifactId>slf4j-log4j12</artifactId>
+	    <version>2.0.7</version>
+	    <type>pom</type>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-core -->
+	<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-core</artifactId>
+	    <version>2.20.0</version>
+	</dependency>
+	
+	<!-- https://mvnrepository.com/artifact/org.apache.logging.log4j/log4j-slf4j-impl -->
+	<dependency>
+	    <groupId>org.apache.logging.log4j</groupId>
+	    <artifactId>log4j-slf4j-impl</artifactId>
+	    <version>2.20.0</version>
+	</dependency>
+
+  </dependencies>
+
    <reporting>
     <plugins>
       <plugin>
@@ -53,12 +92,7 @@
 		  <version>3.7.1</version>
 	  </plugin>
 	  
-	  <!--test-->
-	   <plugin>
-        <groupId>org.codehaus.sonar</groupId>
-        <artifactId>sonar-maven-plugin</artifactId>
-        <version>2.5</version>
-      </plugin>
+
       
     </plugins>
   </build>

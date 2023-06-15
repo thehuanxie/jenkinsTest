@@ -5,6 +5,9 @@ import java.util.Map;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 
 /**
  * The class Transformer allows transform a set of defined tokens into by predefined text.
@@ -13,6 +16,8 @@ import java.util.regex.Pattern;
  *
  */
 public class Transformer {
+	public static Logger Logger = LoggerFactory.getLogger(Main.class);
+	
 	private String token;
 	private String text;
 	private String template;
