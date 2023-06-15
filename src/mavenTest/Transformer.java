@@ -51,16 +51,6 @@ public class Transformer {
 		this.tokenStored.put(token,text);
 	}
 	
-	/**
-	 * Replace the phrase with tokens by text(user's real info)
-	 * 
-	 * Each token should be between brakets, for ex:
-	 * Hello, {name}.
-	 * 
-	 * @param template	phrase template with tokens defined
-	 * @return 
-	 * @return	template phrase with tokens replaced.
-	 */
 	
 	/**
 	 *Replace the phrase with tokens by text(user's real info)
@@ -68,9 +58,9 @@ public class Transformer {
 	 * Each token should be between brakets, for ex:
 	 * Hello, {name}.
 	 * 
-	 * @param text
+	 * @param text			phrase template with tokens defined
 	 * @param tokenStored
-	 * @return
+	 * @return				template phrase with tokens replaced.
 	 */
 	public String replaceTokens(String text, Map<String, String> tokenStored) {
 		Pattern pattern = Pattern.compile("\\{(.+?)\\}");
