@@ -61,70 +61,33 @@ public class Transformer {
 	 * @return 
 	 * @return	template phrase with tokens replaced.
 	 */
-//	public String transformTemplate(String template, Map<String, String> tokenStored) {
-		
-//		This is a naive way to do:
-//		String transformText = template;
-//		for (Entry<String, String> entry: tokenStored.entrySet()) {
-//			transformText = transformText.replace(entry.getKey(), entry.getValue())l
-//		}
-//		return transformText;
-		
-//		for (Entry<String, String> entry : tokenStored.entrySet()) {
-//			String token = entry.getKey();
-//			String text1 = entry.getValue();
-//			if (template.contains(token)) {
-//				template = template.replace(token, text1);
-//			}
-//		}
-//		return template;
-//	}
 	
+	/**
+	 *Replace the phrase with tokens by text(user's real info)
+	 * 
+	 * Each token should be between brakets, for ex:
+	 * Hello, {name}.
+	 * 
+	 * @param text
+	 * @param tokenStored
+	 * @return
+	 */
+	public String replaceTokens(String text, Map<String, String> tokenStored) {
+		Pattern pattern = Pattern.compile("\\{(.+?)\\}");
+		Matcher matcher = pattern.matcher(text);
+		StringBuffer buffer = new StringBuffer();
 		
-//		optimisation:
-//		int capacity = (int) (template.length() *1.2f);
-//		StringBuilder stringbuilder = new StringBuilder(capacity); 
-//		Pattern pattern = Pattern.compile("\\{(.+?)\\}");
-//		Matcher matcher = pattern.matcher(template);
-//		
-//		//for each token in the template
-//		while (matcher.find()) {
-//			//String token = matcher.group(1);
-//			String value = tokenStored.get(matcher.group(1));
-//			
-//			//replace the token by text
-//			if (value != null) {
-//				matcher.appendReplacement(stringbuilder, "");
-//				stringbuilder.append(value);
-//			} else {
-//				stringbuilder.append("{" + token + "}");
-//			}
-//			matcher.appendTail(stringbuilder);
-//			
-//		}
-//		return stringbuilder.toString();
-		
-//	}
-		
-		public String replaceTokens(String text, Map<String, String> tokenStored) {
-			Pattern pattern = Pattern.compile("\\{(.+?)\\}");
-			Matcher matcher = pattern.matcher(text);
-			StringBuffer buffer = new StringBuffer();
-			
-			while (matcher.find()) {
-				String replacement = tokenStored.get(matcher.group(1));
-				if (replacement != null) {
-				// matcher.appendReplacement(buffer, replacement);
-				// see comment 
-					matcher.appendReplacement(buffer, replacement);
-//					buffer.append();
-				}else {
-					System.out.println("No this token");
-				}
+		while (matcher.find()) {
+			String replacement = tokenStored.get(matcher.group(1));
+			if (replacement != null) {
+				matcher.appendReplacement(buffer, replacement);
+			}else {
+				System.out.println("No this token");
 			}
-			matcher.appendTail(buffer);
-			return buffer.toString();
 		}
+		matcher.appendTail(buffer);
+		return buffer.toString();
+	}
 	
 	/**
 	 * removeToken can delete a stored token
