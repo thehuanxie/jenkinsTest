@@ -9,6 +9,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 
+
+
 /**
  * The class Transformer allows transform a set of defined tokens into by predefined text.
  * 
@@ -16,7 +18,7 @@ import org.slf4j.LoggerFactory;
  *
  */
 public class Transformer {
-	public static Logger Logger = LoggerFactory.getLogger(Main.class);
+	private static Logger logger = LoggerFactory.getLogger(Transformer.class);
 	
 	private String token;
 	private String text;
@@ -77,7 +79,7 @@ public class Transformer {
 			if (replacement != null) {
 				matcher.appendReplacement(buffer, replacement);
 			}else {
-				System.err.println("No this token");
+				logger.error("No this token");
 			}
 		}
 		matcher.appendTail(buffer);

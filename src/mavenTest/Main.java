@@ -4,7 +4,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 public class Main {
-	public static final Logger Logger = LoggerFactory.getLogger(Main.class);
+
+	private static Logger logger = LoggerFactory.getLogger(Main.class);
 	
 	public static void main(String[] args) throws Exception {
 		String phrase;
@@ -14,7 +15,7 @@ public class Main {
 		georgeTransformer.addToken("address", "78 Rue Will Smith");
 		
 		phrase= georgeTransformer.replaceTokens("{company} Hello, {name}, how are you {name} and your address is {address} ?", georgeTransformer.getTokenStored());
-		Logger.info(phrase);
+		logger.info(phrase);
 		georgeTransformer.removeToken("name");
 
 	}
